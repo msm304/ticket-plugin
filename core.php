@@ -23,7 +23,7 @@ class Core
     }
     public function __construct()
     {
-        if (version_compare(7.1, self::MINIMUM_PHP_VERSION, '<')) {
+        if (version_compare(PHP_VERSION, self::MINIMUM_PHP_VERSION, '<')) {
             add_action('admin_notices', [$this, 'admin_php_notice']);
             return;
         }
