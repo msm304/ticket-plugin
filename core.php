@@ -27,7 +27,7 @@ class Core
         define('TKT_FRONT_ASSETS', trailingslashit(plugin_dir_url(TKT_URL . 'assets/front')));
 
         $tkt_plugin_data = get_plugin_data(TKT_BASE_FILE);
-        echo '<pre>';var_dump($tkt_plugin_data);echo '</pre>';
+        define('TKT_VER' , $$tkt_plugin_data['Version']);
     }
     public function init(){
         register_activation_hook(TKT_BASE_FILE , [$this , 'active']);

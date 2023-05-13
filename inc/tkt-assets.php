@@ -13,6 +13,6 @@ class TKT_Assets
     }
     public function front_assets()
     {
-        wp_enqueue_style('tkt-style' , TKT_FRONT_ASSETS . 'css/style.css' , '' ,'')
+        wp_enqueue_style('tkt-style' , TKT_FRONT_ASSETS . 'css/style.css' , '' , TKT_VER)
     }
 }
