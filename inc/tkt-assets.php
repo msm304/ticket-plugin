@@ -10,6 +10,7 @@ class TKT_Assets
     }
     public function admin_assets()
     {
+        wp_enqueue_script('tkt-main' , TKT_ADMIN_ASSETS , ['jquery'] , TKT_VER , true);
     }
     public function front_assets()
     {
