@@ -8,6 +8,7 @@ Version: 1.0.0
 Author URI: https://owebra.com
 */
 defined('ABSPATH') || exit('Not Access');
+require 'inc/tkt-assets.php';
 class Core
 {
     public function __construct()
@@ -32,6 +33,7 @@ class Core
     public function init(){
         register_activation_hook(TKT_BASE_FILE , [$this , 'active']);
         register_deactivation_hook(TKT_BASE_FILE , [$this , 'deactive']);
+        new TKT_Assets();
     }
     public function active()
     {
