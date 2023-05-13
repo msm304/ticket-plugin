@@ -11,6 +11,13 @@ defined('ABSPATH') || exit('Not Access');
 require 'inc/tkt-assets.php';
 class Core
 {
+    private static $_instance = null;
+    public static function instance(){
+        if(is_null(self::$_instance)){
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
     public function __construct()
     {
         $this->constants();
@@ -43,4 +50,4 @@ class Core
     }
 }
 
-$core = new Core();
+Core::instance();
