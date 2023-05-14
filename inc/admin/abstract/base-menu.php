@@ -6,6 +6,8 @@ abstract class Base_Menu{
     protected $capability;
     protected $menu_slug;
     protected $icon;
+    protected $has_sub_menu = false;
+    protected $sub_items;
 
     public function __construct()
     {
@@ -23,6 +25,18 @@ abstract class Base_Menu{
             $this->icon,
 
         );
+        if($this->has_sub_menu){
+            foreach($this->sub_items as $item){
+                add_submenu_page(
+                    $this->menu_slug,
+                    $item['page_title'],
+                    $item['menu_title'],
+                    $this->capability,
+                    $item['menu_slug'],
+                    [$this , $item['callback']],
+                );
+            }
+        }
     }
     abstract public function page();
 }
