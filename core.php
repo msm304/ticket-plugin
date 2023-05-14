@@ -10,6 +10,7 @@ Author URI: https://owebra.com
 
 defined('ABSPATH') || exit('Not Access');
 require 'inc/tkt-assets.php';
+require 'inc/tkt-db.php';
 class Core
 {
     private static $_instance = null;
@@ -52,6 +53,7 @@ class Core
     }
     public function active()
     {
+        TKT_DB::create_tables();    
     }
     public function deactive()
     {
