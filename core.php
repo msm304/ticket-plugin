@@ -41,9 +41,9 @@ class Core
         define('TKT_BASE_FILE', __FILE__);
         define('TKT_PATH', trailingslashit(plugin_dir_path(TKT_BASE_FILE)));
         define('TKT_URL', trailingslashit(plugin_dir_url(TKT_BASE_FILE)));
-        define('TKT_ADMIN_ASSETS', trailingslashit(plugin_dir_url(TKT_URL . 'assets/admin')));
-        define('TKT_FRONT_ASSETS', trailingslashit(plugin_dir_url(TKT_URL . 'assets/front')));
-
+        define('TKT_ADMIN_ASSETS', trailingslashit(TKT_URL . 'assets/admin'));
+        define('TKT_FRONT_ASSETS', trailingslashit(TKT_URL . 'assets/front'));
+        var_dump(TKT_ADMIN_ASSETS);
         $tkt_plugin_data = get_plugin_data(TKT_BASE_FILE);
         define('TKT_VER', $$tkt_plugin_data['Version']);
     }

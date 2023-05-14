@@ -8,8 +8,7 @@ class TKT_Menu extends Base_Menu
         $this->page_title = 'تیکت پشتیبانی';
         $this->menu_title = 'تیکت پشتیبانی';
         $this->menu_slug = 'ticket-plugin';
-        $this->icon = plugins_url('ticket-plugin/assets/admin/images/icon.png');
-        // $this->icon = TKT_ADMIN_ASSETS . 'images/icon.png';
+        $this->icon = TKT_ADMIN_ASSETS . 'images/icon.png';
         $this->has_sub_menu = true;
         $this->sub_items = [
             'tickets' => [
