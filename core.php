@@ -39,12 +39,16 @@ class Core
         define('TKT_URL', trailingslashit(plugin_dir_url(TKT_BASE_FILE)));
         define('TKT_ADMIN_ASSETS', trailingslashit(TKT_URL . 'assets/admin'));
         define('TKT_FRONT_ASSETS', trailingslashit(TKT_URL . 'assets/front'));
+        define('TKT_INC_PATH', trailingslashit(TKT_PATH . 'inc'));
+
         $tkt_plugin_data = get_plugin_data(TKT_BASE_FILE);
         define('TKT_VER', $tkt_plugin_data['Version']);
     }
     public function init()
     {
         require_once TKT_PATH . 'vendor/autoload.php';
+        require_once TKT_INC_PATH . 'admin/codestar/codestar-framework.php';
+        require_once TKT_INC_PATH . 'admin/tkt-settings.php';
         register_activation_hook(TKT_BASE_FILE, [$this, 'active']);
         register_deactivation_hook(TKT_BASE_FILE, [$this, 'deactive']);
         new TKT_Assets();

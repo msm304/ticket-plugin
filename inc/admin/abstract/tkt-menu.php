@@ -11,6 +11,12 @@ class TKT_Menu extends Base_Menu
         $this->icon = TKT_ADMIN_ASSETS . 'images/icon.png';
         $this->has_sub_menu = true;
         $this->sub_items = [
+            'settings' => [
+                'pageـtitle' => 'تنظیمات',
+                'menu_title' => 'تنظیمات',
+                'menu_slug' => 'tkt-settings',
+                'callback' => '',
+            ],
             'tickets' => [
                 'pageـtitle' => 'لیست تیکت ها',
                 'menu_title' => 'لیست تیکت ها',
