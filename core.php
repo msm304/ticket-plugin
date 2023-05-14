@@ -40,6 +40,7 @@ class Core
         define('TKT_ADMIN_ASSETS', trailingslashit(TKT_URL . 'assets/admin'));
         define('TKT_FRONT_ASSETS', trailingslashit(TKT_URL . 'assets/front'));
         define('TKT_INC_PATH', trailingslashit(TKT_PATH . 'inc'));
+        define('TKT_VIEWS_PATH', trailingslashit(TKT_PATH . 'views'));
 
         $tkt_plugin_data = get_plugin_data(TKT_BASE_FILE);
         define('TKT_VER', $tkt_plugin_data['Version']);

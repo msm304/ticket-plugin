@@ -43,6 +43,7 @@ class TKT_Menu extends Base_Menu
     }
     public function departments_page()
     {
-        echo '<h2>لیست دپارتمان ها</h2>';
+        $manager = new TKT_Admin_Department_Manager();
+        $manager->page();
     }
 }
