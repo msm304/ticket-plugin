@@ -67,6 +67,10 @@ class TKT_DB
             PRIMARY KEY ('ID'),
             KEY 'ticket_id' ('ticket_id'))
             ENGINE=InnoDB " . $charset . ";";  
-    
+        
+        dbDelta($departments_sql);
+        dbDelta($users_sql);
+        dbDelta($tickets_sql);
+        dbDelta($replies_sql);
     }
 }
