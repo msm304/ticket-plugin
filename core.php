@@ -11,6 +11,8 @@ Author URI: https://owebra.com
 defined('ABSPATH') || exit('Not Access');
 require 'inc/tkt-assets.php';
 require 'inc/tkt-db.php';
+require 'inc/admin/abstract/base-menu.php';
+require 'inc/admin/abstract/tkt-menu.php';
 class Core
 {
     private static $_instance = null;
@@ -50,6 +52,9 @@ class Core
         register_activation_hook(TKT_BASE_FILE, [$this, 'active']);
         register_deactivation_hook(TKT_BASE_FILE, [$this, 'deactive']);
         new TKT_Assets();
+        if(is_admin()){
+            new TKT_Menu();
+        }
     }
     public function active()
     {
