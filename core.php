@@ -55,6 +55,7 @@ class Core
         new TKT_Assets();
         if(is_admin()){
             new TKT_Menu();
+            new TKT_Admin_Ajax();
         }
     }
     public function active()

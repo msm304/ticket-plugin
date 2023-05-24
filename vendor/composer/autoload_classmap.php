@@ -59,6 +59,7 @@ return array(
     'CSF_Walker_Nav_Menu_Edit' => $baseDir . '/inc/admin/codestar/functions/walker.php',
     'CSF_Welcome' => $baseDir . '/inc/admin/codestar/views/welcome.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'TKT_Admin_Ajax' => $baseDir . '/inc/admin/tkt-admin-ajax.php',
     'TKT_Admin_Department_Manager' => $baseDir . '/inc/admin/tkt-admin-department-manager.php',
     'TKT_Assets' => $baseDir . '/inc/tkt-assets.php',
     'TKT_DB' => $baseDir . '/inc/tkt-db.php',
