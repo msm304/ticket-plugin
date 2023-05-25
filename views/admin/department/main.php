@@ -13,6 +13,7 @@
                 <div class="form-wrap">
                     <h2>دپارتمان جدید</h2>
                     <form id="tkt-add-department" method="post" class="validate">
+                        <?php wp_nonce_field('add_department' , 'add_department_nonce' , false); ?>
                         <div class="form-field form-required term-name-wrap">
                             <label for="department-name">عنوان</label>
                             <input name="name" id="department-name" type="text" value="" size="40" aria-required="true" aria-describedby="name-description" />
@@ -21,13 +22,22 @@
                             <label for="parent">والد</label>
                             <select name='parent' id='department-parent' class='postform' aria-describedby="parent-description">
                                 <option value="0">بدون والد</option>
-                                <option value="1">عنوان دپارتمان</option>
+                                <?php if(count($departments)): ?>
+                                    <?php foreach($departments as $department): ?>
+                                        <?php 
+                                            if($department->parent){
+                                                continue;
+                                            }
+                                            ?>
+                                        <option value="<?php echo esc_attr($department->ID) ?>"><?php echo esc_html($department->name); ?></option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </select>
                         </div>
                         <div class="form-field">
                             <label for="department-answerable">کاربران پاسخگو</label>
                             <select name="answerable[]" id="department-answerable" multiple>
-                                
+
                             </select>
                         </div>
                         <div class="form-field">
@@ -59,19 +69,31 @@
                         </tr>
                     </thead>
                     <tbody id="the-list">
-                        <tr>
-                            <td>
-                                <strong>عنوان</strong>
-                                <br>
-                                <div class="row-actions">
-                                    <span class="edit"><a href="">ویرایش</a></span>
-                                    <span class="delete"><a href="">حذف</a></span>
-                                </div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td>1</td>
-                        </tr>
+                        <?php if (count($departments)) : ?>
+                            <?php foreach ($departments as $department) : ?>
+                                <tr>
+                                    <td>
+                                        <strong><?php echo esc_html($department->name) ?></strong>
+                                        <br>
+                                        <div class="row-actions">
+                                            <span class="edit"><a href="">ویرایش</a></span>
+                                            <span class="delete"><a href="">حذف</a></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <?php if ($department->parent) {
+                                            $parent = $this->get_department($department->parent);
+                                            echo $parnet ? $parnet->name : '__';
+                                        }else{
+                                            echo '__';
+                                        }
+                                        ?>
+                                    </td>
+                                    <td></td>
+                                    <td><?php echo esc_html($department->position); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </tbody>
                     <tfoot>
                         <tr>
